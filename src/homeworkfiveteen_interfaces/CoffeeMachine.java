@@ -1,4 +1,4 @@
-package homeworkfiveteen;
+package homeworkfiveteen_interfaces;
 
 public interface CoffeeMachine {
     void on();
@@ -13,7 +13,5 @@ public interface CoffeeMachine {
 
     boolean overflowingCapacity();
 
-    void makeEspresso(double volumeWater, double volumeCoffee);
-
-    void makeAmericano(double volumeWater, double volumeCoffee);
+    void makeCoffee(String coffeeName);
 }

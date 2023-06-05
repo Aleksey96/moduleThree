@@ -1,4 +1,4 @@
-package homeworkfourtåen;
+package homeworkfourtåen_inheritance;
 
 import java.util.Scanner;
 

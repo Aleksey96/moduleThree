@@ -1,4 +1,4 @@
-package homeworkfourtåen;
+package homeworkfourtåen_inheritance;
 
 public class Rate extends Employee {
     private int countJobDay;

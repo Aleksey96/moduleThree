@@ -1,4 +1,4 @@
-package homeworkfourtåen;
+package homeworkfourtåen_inheritance;
 
 import static java.lang.System.out;
 
