@@ -1,7 +1,5 @@
 package homeworkfiveteen_interfaces;
 
-import java.util.Scanner;
-
 import static java.lang.System.out;
 
 public class CoffeeMachineImpl implements CoffeeMachine {
@@ -80,6 +78,17 @@ public class CoffeeMachineImpl implements CoffeeMachine {
         this.maxVolumeWorkedOutCapacity = maxVolumeWorkedOutCapacity;
     }
 
+    protected void checkWaterAndCoffee() {
+        if (!absentWater()) {
+            volumeWater = maxVolumeWater;
+            out.println("The coffee machine is filled ground water " + volumeWater + " ml");
+        }
+        if (!absentGroundCoffee()) {
+            volumeCoffee = maxVolumeCoffee;
+            out.println("The coffee machine is filled with used coffee " + volumeCoffee + " gr");
+        }
+    }
+
     @Override
     public boolean absentWater() {
         if (volumeWater == 0) {
@@ -142,37 +151,34 @@ public class CoffeeMachineImpl implements CoffeeMachine {
     }
 
     @Override
+    public void makeEspresso() {
+        volumeCoffee -= 22;
+        volumeWater -= 30;
+        volumeWorkedOutCapacity += 0.2 * 22;
+    }
+
+    @Override
+    public void makeAmericano() {
+        volumeCoffee -= 22;
+        volumeWater -= 100;
+        volumeWorkedOutCapacity += 0.2 * 22;
+    }
+
+
     public void makeCoffee(String coffee) {
-        on();
-        if (!absentWater()) {
-            volumeWater = maxVolumeWater;
-            out.println("The coffee machine is filled ground water " + volumeWater + " ml");
-        }
-        if (!absentGroundCoffee()) {
-            volumeCoffee = maxVolumeCoffee;
-            out.println("The coffee machine is filled with used coffee " + volumeCoffee + " gr");
-        }
-        cleanCapacity();
         switch (coffee.toLowerCase()) {
-            default: {
-                out.println("The preparation of such coffee is not provided in this model of coffee machine");
-            }
             case "espresso": {
-                volumeCoffee -= 22;
-                volumeWater -= 30;
-                volumeWorkedOutCapacity += 0.2 * 22;
+                makeEspresso();
                 out.println("Espresso is ready");
                 out.println("Coffee left: " + volumeCoffee + " gr." + " Water left: " + volumeWater + " ml." + " Used coffee: " + String.format("%.2f", volumeWorkedOutCapacity));
                 break;
             }
             case "americano": {
-                volumeCoffee -= 22;
-                volumeWater -= 100;
-                volumeWorkedOutCapacity += 0.2 * volumeWorkedOutCapacity;
+                makeAmericano();
                 out.println("Americano is ready");
+                out.println("Coffee left: " + volumeCoffee + " gr." + " Water left: " + volumeWater + " ml." + " Used coffee: " + String.format("%.2f", volumeWorkedOutCapacity));
                 break;
             }
         }
-        off();
     }
 }

@@ -5,13 +5,15 @@ public interface CoffeeMachine {
 
     void off();
 
+    void makeEspresso();
+
     void cleanCapacity();
+
+    void makeAmericano();
 
     boolean absentWater();
 
     boolean absentGroundCoffee();
 
     boolean overflowingCapacity();
-
-    void makeCoffee(String coffeeName);
 }

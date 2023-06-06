@@ -5,7 +5,11 @@ public class TaskOne {
 
         CoffeeMachine coffeeMachine = new CoffeeMachineImpl(false, 0, 1000, 0,
                 500, 0, 500);
-        coffeeMachine.makeCoffee("Espresso");
+        coffeeMachine.on();
+        coffeeMachine.cleanCapacity();
+        ((CoffeeMachineImpl) coffeeMachine).checkWaterAndCoffee();
+        ((CoffeeMachineImpl) coffeeMachine).makeCoffee("Espresso");
+        coffeeMachine.off();
 
     }
 }
