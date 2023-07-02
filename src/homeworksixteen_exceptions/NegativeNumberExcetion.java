@@ -1,4 +1,4 @@
-package homeworksixteen_exception;
+package homeworksixteen_exceptions;
 
 public class NegativeNumberExcetion extends Exception {
     NegativeNumberExcetion(String description) {

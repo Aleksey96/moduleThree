@@ -1,8 +1,7 @@
-package homeworksixteen_exception;
+package homeworksixteen_exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystemAlreadyExistsException;
 
 public class TaskSix {
